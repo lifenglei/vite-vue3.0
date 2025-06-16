@@ -1,0 +1,161 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+<!--
+ * @Author: lifenglei 1125911451@qq.com
+ * @Date: 2025-06-16 11:36:59
+ * @LastEditors: lifenglei 1125911451@qq.com
+ * @LastEditTime: 2025-06-16 11:37:18
+ * @FilePath: /tutor/.cursor/rules/tutor.mdc
+ * @Description: 项目开发规范文档
+-->
+
+# Vite + Vue 3.0 平板应用项目规范
+
+## 技术栈说明
+
+- 构建工具：Vite
+- 前端框架：Vue 3.0
+- CSS 框架：Tailwind CSS
+- 目标设备：iPad 平板电脑
+- 开发语言：TypeScript
+- 状态管理：Pinia
+- 路由管理：Vue Router
+
+## 项目结构
+
+```
+src/
+├── assets/        # 静态资源文件
+├── components/    # 公共组件
+├── layouts/       # 布局组件
+├── views/         # 页面视图
+├── router/        # 路由配置
+├── store/         # 状态管理
+├── utils/         # 工具函数
+├── types/         # TypeScript 类型定义
+└── App.vue        # 根组件
+```
+
+## iPad 适配规范
+
+### 1. 视口配置
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+```
+
+### 2. 断点设计
+- sm: 640px（iPad Mini）
+- md: 768px（iPad）
+- lg: 1024px（iPad Pro）
+- xl: 1280px（iPad Pro 横屏）
+
+### 3. 交互规范
+- 支持触摸手势
+- 适配横竖屏切换
+- 考虑 Apple Pencil 支持
+- 键盘输入优化
+
+## Tailwind CSS 使用规范
+
+### 1. 响应式设计
+```html
+<div class="md:flex lg:flex-row">
+  <!-- 响应式布局示例 -->
+</div>
+```
+
+### 2. 主题配置
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#...',
+        secondary: '#...'
+      },
+      spacing: {
+        // iPad 特定间距
+      }
+    }
+  }
+}
+```
+
+### 3. 组件样式规范
+- 使用 @apply 抽取通用样式
+- 避免内联样式
+- 保持类名语义化
+
+## 开发规范
+
+### 1. 组件开发
+- 使用 Composition API
+- 组件命名采用 PascalCase
+- Props 类型声明必须
+- 组件文档注释规范
+
+### 2. 状态管理
+- 模块化 Store
+- 类型安全的 State
+- Action 命名规范
+
+### 3. 路由管理
+- 路由懒加载
+- 权限控制
+- 过渡动画
+
+## 性能优化
+
+### 1. 首屏加载
+- 路由懒加载
+- 组件按需加载
+- 资源预加载
+
+### 2. 渲染优化
+- 虚拟列表
+- 防抖节流
+- Keep-alive 缓存
+
+## 代码提交规范
+
+### 1. Git Commit 规范
+- feat: 新功能
+- fix: 修复
+- docs: 文档
+- style: 样式
+- refactor: 重构
+- test: 测试
+- chore: 构建
+
+### 2. 代码审查
+- 性能检查
+- 代码质量
+- 适配检查
+
+## 测试规范
+
+### 1. 单元测试
+- 组件测试
+- Store 测试
+- 工具函数测试
+
+### 2. E2E 测试
+- 关键流程
+- 兼容性测试
+- 响应式测试
+
+## 部署规范
+
+### 1. 构建配置
+- 环境变量
+- 打包优化
+- 资源压缩
+
+### 2. CI/CD
+- 自动化部署
+- 环境隔离
+- 版本控制
